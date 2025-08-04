@@ -137,6 +137,7 @@ if (g.x < k.x && g.x > d.x && g.y < d.y && g.y > k.y) {
 }
 
 // exercicio 6
+
 return 0;
 
 }
