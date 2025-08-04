@@ -10,7 +10,7 @@
 int main(){
 
 // exercicio 1
-
+/*
 typedef struct pessoa {
     char nome [80];
     int idade;
@@ -197,8 +197,54 @@ for (int i = 1; i < 5; i++) {
 }
 printf("\n");
 printf("Maior media: %d\n", maior);
-
+*/
 // exercicio 7
+
+struct Hora {
+    int hora;
+    int minuto;
+    int segundo;
+};
+
+struct Hora horas[5];
+struct Hora maiorHora;
+
+printf("Digite cinco horas (HH MM SS):\n");
+
+for (int i = 0; i < 5; i++) {
+    printf("Hora %d:\n", i + 1);
+    printf("Hora (0-23): ");
+    scanf("%d", &horas[i].hora);
+    printf("Minuto (0-59): ");
+    scanf("%d", &horas[i].minuto);
+    printf("Segundo (0-59): ");
+    scanf("%d", &horas[i].segundo);
+
+    if (horas[i].hora < 0 || horas[i].hora > 23 ||
+        horas[i].minuto < 0 || horas[i].minuto > 59 ||
+        horas[i].segundo < 0 || horas[i].segundo > 59) {
+        printf("Valores inválidos para a hora. Por favor, digite novamente.\n");
+        i--;
+    }
+}
+
+maiorHora = horas[0];
+
+for (int i = 1; i < 5; i++) {
+   if (horas[i].hora > maiorHora.hora) {
+       maiorHora = horas[i];
+    } else if (horas[i].hora == maiorHora.hora) {
+        if (horas[i].minuto > maiorHora.minuto) {
+            maiorHora = horas[i];
+        } else if (horas[i].minuto == maiorHora.minuto) {
+            if (horas[i].segundo > maiorHora.segundo) {
+                maiorHora = horas[i];
+            }
+        }
+    }
+}
+printf("A maior hora digitada é: %02d:%02d:%02d\n", maiorHora.hora, maiorHora.minuto, maiorHora.segundo);
+
 
 return 0;
 
