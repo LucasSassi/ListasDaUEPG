@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+
 //Autor: Lucas Sassi de Souza
 //RA: 25090523
 //Lista: Structs
+
 int main(){
 
 // exercicio 1
