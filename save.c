@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <math.h>
 //Autor: Lucas Sassi de Souza
 //RA: 25090523
 //Lista: Structs
-int main() {
+int main(){
+
 // exercicio 1
 
 typedef struct pessoa {
@@ -16,18 +18,18 @@ pessoa p;
 
 printf("insira o nome: ");
 fgets(p.nome, 80, stdin);
-fflush(stdin);
+p.nome[strcspn(p.nome, "\n")] = 0;
 
 printf("insira a idade: ");
 scanf("%d", &p.idade);
-fflush(stdin);
+while(getchar() != '\n'); 
 
 printf("insira o endereco: ");
 fgets(p.endereco, 80, stdin);
+p.endereco[strcspn(p.endereco, "\n")] = 0;
+
 printf("\n");
-
-printf("%s: %d, %s", p.nome, p.idade, p.endereco);
-
+printf("%s: %d, %s\n", p.nome, p.idade, p.endereco);
 
 // exercio 2
 
@@ -46,7 +48,6 @@ scanf("%f", &d.y);
 
 distancia = sqrt(d.x*d.x+d.y*d.y);
 printf("%2.f", distancia);
-
 
 // exercicio 3
 
@@ -71,8 +72,7 @@ int distretx = (d.x - k.x);
 int distrety = (d.y - k.y);
 
 distancia = sqrt(distretx*distretx+distrety*distrety);
-printf("%2.f", distancia);
-
+printf("%2.f\n", distancia);
 
 // exercicio 4
 
@@ -94,19 +94,29 @@ printf("insira o y do canto inferiior direito: ");
 scanf("%f", &k.y);
 
 float distretx = (d.x - k.x);
+if (d.x == 0){
+    distretx = k.x;
+}
 float distrety = (d.y - k.y);
+if (d.y == 0){
+    distrety = k.y;
+}
 
 float diagonal = sqrt(distretx*distretx+distrety*distrety);
 printf("diagonal: %2.f\n", diagonal);
 float perimetro = distretx + distretx + distrety + distrety ;
+if (perimetro < 0){
+    perimetro = perimetro * -1;
+}
 printf("Perimetro: %2.f\n", perimetro);
 float area = distretx * distrety;
+if (area < 0){
+    area = area * -1;
+}
 printf("Area: %2.f\n", area);
-
 
 // exercicio 5
 
-float distancia = 0;
 typedef struct retangulo {
     float x;
     float y;
@@ -128,7 +138,14 @@ printf("insira o y do ponto desejado: ");
 scanf("%f", &g.y);
 
 float distretx = (d.x - k.x);
+if (d.x == 0){
+    distretx = k.x;
+}
+
 float distrety = (d.y - k.y);
+if (d.y == 0){
+    distrety = k.y;
+}
 
 if (g.x < k.x && g.x > d.x && g.y < d.y && g.y > k.y) {
     printf("\nO ponto esta contido no retangulo");
@@ -137,6 +154,50 @@ if (g.x < k.x && g.x > d.x && g.y < d.y && g.y > k.y) {
 }
 
 // exercicio 6
+
+typedef struct alunos {
+    char nome[30];
+    int NMRmatricula;
+    int p1, p2, p3;
+} alunos;
+
+alunos A[5];
+
+for (int i = 0; i < 5; i++) {
+    printf("Escreva o nome do aluno %d: ", i + 1);
+    fgets(A[i].nome, 30, stdin);
+}
+printf("\n");
+for (int i = 0; i < 5; i++) {
+    printf("Numero de matricula do aluno %d: ", i + 1);
+    scanf("%d", &A[i].NMRmatricula);
+
+    printf("Nota da primeira prova do aluno %d: ", i + 1);
+    scanf("%d", &A[i].p1);
+
+    printf("Nota da segunda prova do aluno %d: ", i + 1);
+    scanf("%d", &A[i].p2);
+
+    printf("Nota da terceira prova do aluno %d: ", i + 1);
+    scanf("%d", &A[i].p3);
+}
+
+int medias[5];
+for (int u = 0; u < 5; u++) {
+    medias[u] = (A[u].p1 + A[u].p2 + A[u].p3) / 3;
+}
+
+int maior = medias[0];
+for (int i = 1; i < 5; i++) {
+    if (medias[i] > maior) {
+        maior = medias[i];
+    }
+}
+printf("\n");
+printf("Maior media: %d\n", maior);
+
+// exercicio 7
+
 return 0;
 
 }
