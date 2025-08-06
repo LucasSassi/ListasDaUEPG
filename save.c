@@ -155,95 +155,97 @@ if (g.x < k.x && g.x > d.x && g.y < d.y && g.y > k.y) {
     printf("\nO ponto NAO esta contido no retangulo");
 }
 
-// exercicio 6
+// Exercicio 6
 
-typedef struct alunos {
-    char nome[30];
-    int NMRmatricula;
-    int p1, p2, p3;
-} alunos;
+struct aluno{
+       char nome [30];
+        int matricula, prova1, prova2, prova3;
 
-alunos A[5];
+};
+float media1, media2, media3, media4, media5, maior;
 
-for (int i = 0; i < 5; i++) {
-    printf("Escreva o nome do aluno %d: ", i + 1);
-    fgets(A[i].nome, 30, stdin);
+struct aluno A[5];
+for(int i=0;i<5;i++){
+printf("Digite o nome do aluno %d\n", i+1);
+fgets(A[i].nome,30,stdin);
+fflush(stdin);
 }
 printf("\n");
-for (int i = 0; i < 5; i++) {
-    printf("Numero de matricula do aluno %d: ", i + 1);
-    scanf("%d", &A[i].NMRmatricula);
-
-    printf("Nota da primeira prova do aluno %d: ", i + 1);
-    scanf("%d", &A[i].p1);
-
-    printf("Nota da segunda prova do aluno %d: ", i + 1);
-    scanf("%d", &A[i].p2);
-
-    printf("Nota da terceira prova do aluno %d: ", i + 1);
-    scanf("%d", &A[i].p3);
+for(int i=0;i<5;i++){
+printf("Digite o numero de matricula aluno %d\n", i+1);
+scanf("%d",&A[i].matricula);
+}
+for(int i=0;i<5;i++){
+printf("Digite as notas das provas do aluno %d\n", i+1);
+scanf("%d %d %d",&A[i].prova1, &A[i].prova2, &A[i].prova3);
 }
 
-int medias[5];
-for (int u = 0; u < 5; u++) {
-    medias[u] = (A[u].p1 + A[u].p2 + A[u].p3) / 3;
+float medias[5];
+for(int y=0;y<5;y++){
+    medias[y] = (A[y].prova1 + A[y].prova2 + A[y].prova3) / 3;
 }
-
-int maior = medias[0];
-for (int i = 1; i < 5; i++) {
-    if (medias[i] > maior) {
+maior = medias[0];
+for(int i=1;i<5;i++){
+    if(medias[i] > maior){
         maior = medias[i];
     }
 }
-printf("\n");
-printf("Maior media: %d\n", maior);
+for(int i=0;i<5;i++){
+    if(medias[i] == maior){
+        printf("Aluno com a maior media: %s", A[i].nome);
+        printf("Suas notas foram %d, %d e %d", A[i].prova1, A[i].prova2, A[i].prova3);
+    }
+}
 
 // exercicio 7
 
-struct Hora {
-    int hora;
-    int minuto;
-    int segundo;
-};
+struct relogio{
+    int horas, minutos, segundos;
 
-struct Hora horas[5];
-struct Hora maiorHora;
-
-printf("Digite cinco horas (HH MM SS):\n");
-
-for (int i = 0; i < 5; i++) {
-    printf("Hora %d:\n", i + 1);
-    printf("Hora (0-23): ");
-    scanf("%d", &horas[i].hora);
-    printf("Minuto (0-59): ");
-    scanf("%d", &horas[i].minuto);
-    printf("Segundo (0-59): ");
-    scanf("%d", &horas[i].segundo);
-
-    if (horas[i].hora < 0 || horas[i].hora > 23 ||
-        horas[i].minuto < 0 || horas[i].minuto > 59 ||
-        horas[i].segundo < 0 || horas[i].segundo > 59) {
-        printf("Valores inválidos para a hora. Por favor, digite novamente.\n");
-        i--;
+        };
+    struct relogio R[5];
+for(int i=0;i<5;i++){
+printf("Digite as horas, minutos e segundos do relogio %d\n", i+1);
+scanf("%d %d %d",&R[i].horas, &R[i].minutos, &R[i].segundos);
+if(R[i].horas > 23 || R[i].horas < 0){
+    printf("horas invalida\n");
+    i--;
+    }
+ if(R[i].minutos > 59 || R[i].minutos < 0){
+    printf("minutos invalido\n");
+    i--;
+    }
+ if(R[i].segundos > 59 || R[i].segundos < 0){
+    printf("segundos invalido\n");
+    i--;
     }
 }
 
-maiorHora = horas[0];
-
-for (int i = 1; i < 5; i++) {
-   if (horas[i].hora > maiorHora.hora) {
-       maiorHora = horas[i];
-    } else if (horas[i].hora == maiorHora.hora) {
-        if (horas[i].minuto > maiorHora.minuto) {
-            maiorHora = horas[i];
-        } else if (horas[i].minuto == maiorHora.minuto) {
-            if (horas[i].segundo > maiorHora.segundo) {
-                maiorHora = horas[i];
-            }
+int maiorh = R[0].horas , maiorm = R[0].minutos, maiors = R[0].segundos;
+for(int i=1;i<5;i++){
+    if(R[i].horas > maiorh){
+        maiorh = R[i].horas;
+        maiorm = R[i].minutos;
+        maiors = R[i].segundos;
+        }else if (R[i].horas == maiorh){
+        if(R[i].minutos > maiorm){
+            maiorh = R[i].horas;
+            maiorm = R[i].minutos;
+            maiors = R[i].segundos;
+               }else if (R[i].minutos == maiorm){
+                if(R[i].segundos > maiors){
+                    maiorh = R[i].horas;
+                    maiorm = R[i].minutos;
+                    maiors = R[i].segundos;
+                }
+                }
         }
+}
+for(int i=0;i<5;i++){
+    if (maiorh = R[i].horas && maiorm == R[i].minutos && maiors == R[i].segundos){
+        printf("O maior horario e %d horas %d minutos e %d segundos",R[i].horas, R[i].minutos, R[i].segundos);
     }
 }
-printf("A maior hora digitada é: %02d:%02d:%02d\n", maiorHora.hora, maiorHora.minuto, maiorHora.segundo);
 
 return 0;
 
