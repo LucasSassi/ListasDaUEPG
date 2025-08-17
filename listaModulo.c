@@ -55,17 +55,14 @@ void meses(mes){
     }
 }
 
-void piramide (numero){
+void piramide_multiplicacao(numero) {
+    int i, j;
 
-
-int linha;
-int j;
-
-    for (linha = 1; linha <= numero; linha++){
-        for (j = 1; j<= linha; j++){
-            printf("%d ", j);
+    for (i = 1; i <= numero; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("%d ", i * j);
         }
-printf("\n");
+        printf("\n");
     }
 }
 
@@ -99,6 +96,27 @@ void horas(horario) {
     int hora_segundos = horario % 60;
 
     printf("Convertido: %d:%d:%d\n", hora_hora, hora_minuto, hora_segundos);
+}
+
+
+void piramide(nmr){
+
+printf("\n");
+
+    for (int i = 1; i <= nmr; i++) {
+        for (int k = 1; k <= i; k++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int i = nmr - 1; i >= 1; i--) {
+        for (int k = 1; k <= i; k++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    printf("\n");
+
 }
 
 int main()
@@ -135,7 +153,7 @@ int linhas, colunas;
 
 // exercicio 5
 
-//
+// 
 
 // exercico 6
 
@@ -143,6 +161,22 @@ int linhas, colunas;
     printf("Digite um numero em segundos: ");
     scanf("%d", &horario);
     horas(horario);
+
+// exercicio 7
+
+int numero;
+printf("Digite um numero: ");
+scanf("%d", &numero);
+piramide_multiplicacao(numero);
+
+
+// exercicio 8
+
+int nmr;    
+printf("Digite um numero: \n");
+scanf("%d", &nmr);
+
+piramide(nmr);
 */
     return 0;
 }
