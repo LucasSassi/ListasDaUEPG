@@ -82,6 +82,7 @@ printf("\n");
 */
 
 // exercicio 3
+
 /*
 int n; 
 printf("Escreva um numero: ");
