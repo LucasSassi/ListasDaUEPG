@@ -60,6 +60,39 @@ int exercicio8(int n){
     return (n) * exercicio8(n - 1);
 }
 
+int exercicio9(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    
+    return exercicio9(n - 1) + exercicio9(n - 2);
+}
+
+int exercicio10(int num, int reverso) {
+    if (num == 0) {
+        return reverso;
+    }
+    return exercicio10(num / 10, (reverso * 10) + (num % 10));
+}
+
+int exercicio11(int num) {
+    if (num == 0){
+        return 0;   
+    }
+
+    return (num % 2) + 10 * exercicio11(num / 2); 
+}
+
+float exercicio12(float num) {
+    if (num == 1) {
+        return 2.0f;
+    }
+    return ((1 + ((num) * (num)))/num) + exercicio12(num - 1);
+}
+
 int main(){
 
 
@@ -123,6 +156,51 @@ printf("Digite um numero: ");
 scanf("%d", &n);
 exercicio8(n);
 printf("\n%d\n", exercicio8(n));
+*/
+
+// exercicio 9
+
+/*
+int numero;
+printf("Digite um numero inteiro (maior ou igual a zero): ");
+scanf("%d", &numero);
+
+int resultado = exercicio9(numero - 1);
+printf("O termo de ordem %d da sequencia de Fibonacci e: %d\n", numero, resultado);
+*/
+
+// exercicio 10
+ 
+/*
+int numero;
+int reverso = 0;
+printf("Digite um numero inteiro: ");
+scanf("%d", &numero);
+
+exercicio10(numero, reverso);
+printf("O numero invertido e: %d\n", exercicio10(numero, reverso));
+*/
+
+// exercicio 11
+
+/*
+int numero;
+printf("Digite um numero inteiro: ");
+scanf("%d", &numero);
+
+exercicio11(numero);
+printf("O numero em base binaria e: %d\n", exercicio11(numero));
+*/
+
+// exercicio 12
+
+/*
+int numero = 0;
+printf("Digite um numero inteiro: ");
+scanf("%d", &numero);
+
+exercicio12(numero);
+printf("O resultado da funcao e: %f\n", exercicio12(numero));
 */
 
 return 0;
