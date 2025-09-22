@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <math.h>
 
+/*
+NOME: Lucas Sassi de Souza
+RA: 25090523
+Lista: Funcoes
+Data: 18/10/2023
+*/
+
+
 void par_impar(int nmr) {
     if (nmr % 2 == 0){
         printf("O numero e par");
