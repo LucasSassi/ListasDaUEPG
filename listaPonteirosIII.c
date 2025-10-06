@@ -33,21 +33,42 @@ void exercicio2( int *matriz[3][3] ) {
     }
 }
 
+int exercicio3(int *pont) {
+
+    printf("O dobro dos valores digitados:\n");
+
+    for (int i = 0; i < 5; i++) {
+        printf("%d\n", *(pont + i) * 2);
+    }
+
+    return pont;
+
+}
+
+void exercicio4(int *ptr, int tamanho) {
+    int i;
+    printf("\nEndereco das posicoes com valores pares:\n");
+    for (i = 0; i < tamanho; i++) {
+        if (*(ptr + i) % 2 == 0) {
+            printf("Valor %d esta no endereco: %d\n", *(ptr + i), ptr + i);
+        }
+    }
+}
 
 int main() {
 
 // exercicio 1
-
+/*
     int vet[10];
     for (int i = 0; i < 10; i++) {
         printf("Digite o %dº valor do vetor: ", i + 1);
         scanf("%d", &vet[i]);
     }
 
-    exercicio1( &vet );
+    exercicio1( &vet ); 
 
 // exercicio 2
-/*
+
 int matriz[3][3];
 
 for (int i = 0; i < 3; i++) {
@@ -58,6 +79,34 @@ for (int i = 0; i < 3; i++) {
 }
 
 exercicio2( &matriz );
+
+// exercicio 3
+
+int numeros[5];
+int *pont = &numeros[0];
+
+for (int i = 0; i < 5; i++) {
+    printf("Digite o %d valor: ", i + 1);
+    scanf("%d", pont + i);
+}
+
+exercicio3(pont); 
+
+for (int i = 0; i < 5; i++) {
+    printf("Endereco do %d valor: %d\n", i + 1, &pont + i);
+} 
+
+// exercicio 4
+
+int numeros[5];
+int i;
+
+printf("Digite 5 numeros inteiros:\n");
+for (i = 0; i < 5; i++) {
+    scanf("%d", &numeros[i]);
+}
+
+exercicio4(numeros, 5);
 */
     return 0;
 }
