@@ -105,7 +105,7 @@ printf("O vetor a ser impresso contem os seguintes elementos:\n");
     
 exercicio3(numeros, 8);
 
-*/
+
 // exercicio 4
 int a;
 int *b;
@@ -120,6 +120,6 @@ c = &b;
 d = &c;
 
 exercicio4(b, c, d);
-
+*/
     return 0;
 }
