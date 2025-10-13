@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+NOME: Lucas Sassi de Souza
+RA: 25090523
+LISTA DE EXERCICIOS - ALOCACAO DINAMICA
+*/
+
 void exercicio1(){
 
     printf("TAMANHO DE CADA TIPO DE DADO:\n");
@@ -180,6 +186,6 @@ int main(){
 // exercicio 5
 
     exercicio5();
-    
+
     return 0; 
 }
