@@ -25,6 +25,31 @@ int main(){
     fprintf(arq, "%s", string);
     fclose(arq);
 
+    // Leitura do arquivo
+    arq = fopen("exemplo2.txt", "r");
+    if (arq == NULL) { printf("Erro ao abrir o arquivo.\n");
+    
+        system("pause");
+        exit(1);
+    }
+    printf("Conteúdo do arquivo:\n");
+
+    char c;
+
+    while ((c = fgetc(arq)) != EOF) {
+        printf("%s", string);
+        fclose(arq);
+        system("pause");
+        exit(1);
+    }
+
+    // for (i = 0; i < 100; i++) {
+    //     char c = fgetc(arq);
+    //     if (c == EOF) { break; }
+    //     putchar(c);
+    // }
+
+    fclose(arq);
     system("pause");
 
     }
